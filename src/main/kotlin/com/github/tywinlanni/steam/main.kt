@@ -18,6 +18,7 @@ fun main() {
 
     val allLangList = listOf("en", "ru", "es", "pl", "de", "cn")
 
+    //generator users and games
     /*for (i in 1..100) {
         val firstIndexLang = (0..allLangList.lastIndex).random()
         val lastIndexLang = (firstIndexLang..allLangList.lastIndex).random()
@@ -32,11 +33,16 @@ fun main() {
         service.addNewUser("Tywin $i", allLangList.random(), userLib)
     }*/
 
+    val mostExprGame = service.mostExpensiveGameInLib("Tywin 1")
+
+    println("Most overprice game: ${mostExprGame.name}, ${mostExprGame.price}$")
+
     println(service.mostPopularGame().joinToString { it.name })
 
     println(service.valueGamesInUserLibDoesNotSupportNativeLang("Tywin 1"))
 
-    service.equalsUsersLib("Tywin 1", "Tywin 2")
+    service.equalsUsersLib("Tywin 12", "Tywin 98")
 
-    println(service.listUsersWithGameInLibWhichSupLang("de").joinToString { it.login })
+    println(service.listUsersWithGameInLibWhichSupLang("en").joinToString { it.login })
+
 }
